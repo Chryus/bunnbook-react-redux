@@ -3,14 +3,15 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import { browserHistory } from 'react-router';
 import rootReducer from '../reducers/rootReducer';
 import thunk from 'redux-thunk';
-
-const defaultState = {};
+import { loadBunnies } from './actions/bunnyActions';
 
 const enhancers = compose(
   window.devToolsExtension ? window.devToolsExtension() : f => f
 );
 
-const store = createStore(rootReducer, applyMiddleware(thunk), defaultState, enhancers);
+const store = createStore(rootReducer, applyMiddleware(thunk), enhancers);
+
+store.dispatch(loadBunnies());
 
 export const history = syncHistoryWithStore(browserHistory, store);
 
