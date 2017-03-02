@@ -1,12 +1,16 @@
 import React from 'react';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute } from 'react-router';
+import { Provider } from 'react-redux';
+import store, { history } from './store';
 import App from './components/App';
 // import Home from './components/Home';
 // import Bunnies from '.components/Bunnies';
 // import Bunny from '.components/Bunny';
 
 export default (
-  <Router history={browserHistory}>
-    <Route path="/" component={App} />
-  </Router>
+  <Provider store={store}>
+    <Router history={history}>
+      <Route path="/" component={App} />
+    </Router>
+  </Provider>
 );
