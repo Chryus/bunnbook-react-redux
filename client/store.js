@@ -5,16 +5,16 @@ import rootReducer from './reducers/index';
 import thunk from 'redux-thunk';
 import { loadBunnies } from './actions/bunnyActions';
 
-const enhancers = compose(
-  window.devToolsExtension ? window.devToolsExtension() : f => f
-);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const defaultState = {
   bunnies: [],
   hobbies: []
 };
 
-const store = createStore(rootReducer, defaultState, applyMiddleware(thunk), enhancers);
+const store = createStore(rootReducer, defaultState, composeEnhancers(
+  applyMiddleware(thunk)
+));
 
 store.dispatch(loadBunnies());
 
