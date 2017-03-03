@@ -10,8 +10,9 @@ import Bunnies from './components/Bunnies';
 export default (
   <Provider store={store}>
     <Router history={history}>
-      <Route path="/" component={App} />
+      <Route path="/" component={App}>
         <IndexRoute component={Bunnies} />
+      </Route>
     </Router>
   </Provider>
 );
