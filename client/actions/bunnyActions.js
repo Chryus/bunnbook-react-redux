@@ -10,6 +10,7 @@ export const loadBunniesSuccess = (bunnies) => {
 export const loadBunnies = () => {
   return (dispatch) => {
     return getAllBunnies().then(bunnies => {
+      debugger
       dispatch(loadBunniesSuccess(bunnies));
     }).catch(error => {
       throw(error);
