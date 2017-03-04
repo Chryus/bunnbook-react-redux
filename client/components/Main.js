@@ -3,7 +3,6 @@ import Header from './common/Header';
 
 class Main extends Component {
   render() {
-    debugger
     return (
       <div className="container-fluid">
         <Header />
