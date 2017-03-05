@@ -1,19 +1,21 @@
 import React, { PropTypes } from 'react';
 
-const BunnyList = ({bunnies}) => {
+const BunnyList = ({bunny, i}) => {
   return (
-    <ul className="list-group">
-      {bunnies.map((bunny) =>
-        <li className="list-group-item" key={bunny.id}>
-          {bunny.attributes.name}
-        </li>
-      )}
-    </ul>
+    <figure className="grid-figure">
+      <div className="grid-photo-wrap">
+        <img src={bunny.attributes['img-url']} alt={bunny.attributes.name} className="grid-photo"/>
+      </div>
+      <figcaption>
+        <p>{bunny.attributes.name}</p>
+      </figcaption>
+    </figure> 
   );
 };
 
 BunnyList.propTypes = {
-  bunnies: PropTypes.array.isRequired
+  bunny: PropTypes.object.isRequired,
+  i: PropTypes.number.isRequired
 };
 
 export default BunnyList;

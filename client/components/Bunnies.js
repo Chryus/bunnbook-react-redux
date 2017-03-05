@@ -10,13 +10,16 @@ class Bunnies extends Component {
         </div>
       );
     }
-
-    const bunz = this.props.bunnies.data;
+    
     return (
       <div className="col-md-12">
-        <h1>Here are the bunnies!</h1>
-        <div className="col-md-4">
-          <BunnyList bunnies={bunz} />
+        <div className="jumbotron">
+          <h1>Here are the bunnies!</h1>
+        </div>
+        <div className="photo-grid">
+          {this.props.bunnies.data.map((bunny, i) => 
+            <BunnyList {...this.props} key={i} i={i} bunny={bunny} />
+          )}
         </div>
       </div>
     );
