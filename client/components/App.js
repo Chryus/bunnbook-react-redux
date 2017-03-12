@@ -1,19 +1,20 @@
-import React, {PropTypes, Component} from 'react';
-import Header from './common/Header';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actionCreators from '../actions/bunnyActions';
+import Main from './Main';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="container-fluid">
-        <Header />
-        {this.props.children}
-      </div>
-    );
-  }
-}
-
-App.propTypes = {
-  children: PropTypes.object
+const mapStateToProps = (state) => {
+  return {
+    bunnies: state.bunnies,
+    hobbies: state.hobbies
+  };
 };
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(actionCreators,
+    dispatch);
+};
+
+const App = connect(mapStateToProps, mapDispatchToProps)(Main);
 
 export default App;

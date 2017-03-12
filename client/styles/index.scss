@@ -33,3 +33,23 @@ body {
   margin-top: -2rem;
   max-width: none;
 }
+
+.single-photo {
+  @extend .grid-figure;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  background: white;
+  .grid-figure {
+    box-shadow: none;
+    margin: 0 2rem 0 0;
+    border: 0;
+    padding: 0;
+    flex: 1 0 60%;
+    max-width: 60%;
+  }
+  .grid-photo {
+    width: 100%;
+    margin: 0;
+  }
+}
