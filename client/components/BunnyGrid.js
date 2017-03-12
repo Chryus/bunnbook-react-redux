@@ -1,7 +1,9 @@
 import React, {PropTypes, Component} from 'react';
-import BunnyList from './BunnyList';
+import {connect} from 'react-redux';  
+import * as bunnyActions from '../actions/bunnyActions';
+import Photo from './Photo';
 
-class Bunnies extends Component {
+class BunnyGrid extends Component {
   render() {
     if (!this.props.bunnies.data) {
       return (
@@ -18,7 +20,7 @@ class Bunnies extends Component {
         </div>
         <div className="photo-grid">
           {this.props.bunnies.data.map((bunny, i) => 
-            <BunnyList {...this.props} key={i} i={i} bunny={bunny} />
+            <Photo {...this.props} key={i} i={i} bunny={bunny} />
           )}
         </div>
       </div>
@@ -26,8 +28,15 @@ class Bunnies extends Component {
   }
 }
 
-Bunnies.propTypes = {
-  bunnies: PropTypes.array
+function mapStateToProps(state, ownProps) {
+  // state = {bunnies: [{id:1, name: "Maru"}, etc.]}
+  return {
+    bunnies: state.bunnies
+  };
+}
+
+BunnyGrid.propTypes = {
+  bunnies: PropTypes.object
 };
 
-export default Bunnies;
+export default connect(mapStateToProps)(BunnyGrid);

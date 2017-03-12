@@ -1,17 +1,18 @@
-import React from 'react';
+import React from "react";
 import { Router, Route, IndexRoute } from 'react-router';
 import { Provider } from 'react-redux';
 import store, { history } from './store';
 import App from './components/App';
 // import Home from './components/Home';
-import Bunnies from './components/Bunnies';
-// import Bunny from '.components/Bunny';
+import BunnyGrid from './components/BunnyGrid';
+import SingleBunny from './components/SingleBunny';
 
 export default (
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App}>
-        <IndexRoute component={Bunnies} />
+        <IndexRoute component={BunnyGrid}></IndexRoute>
+        <Route path="bunnies/:id" component={SingleBunny}/>
       </Route>
     </Router>
   </Provider>
