@@ -5,7 +5,7 @@ import Photo from './Photo';
 
 class BunnyGrid extends Component {
   render() {
-    if (!this.props.bunnies.data) {
+    if (!this.props.bunnies) {
       return (
         <div className="jumbotron">
           <h1>Loading the bunnies!</h1>
@@ -19,7 +19,7 @@ class BunnyGrid extends Component {
           <h1>Here are the bunnies!</h1>
         </div>
         <div className="photo-grid">
-          {this.props.bunnies.data.map((bunny, i) => 
+          {this.props.bunnies.map((bunny, i) => 
             <Photo {...this.props} key={i} i={i} bunny={bunny} />
           )}
         </div>
@@ -31,12 +31,12 @@ class BunnyGrid extends Component {
 function mapStateToProps(state, ownProps) {
   // state = {bunnies: [{id:1, name: "Maru"}, etc.]}
   return {
-    bunnies: state.bunnies
+    bunnies: state.bunnies.data
   };
 }
 
 BunnyGrid.propTypes = {
-  bunnies: PropTypes.object
+  bunnies: PropTypes.array
 };
 
 export default connect(mapStateToProps)(BunnyGrid);

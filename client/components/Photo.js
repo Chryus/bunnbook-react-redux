@@ -4,14 +4,14 @@ import { Link } from 'react-router';
 const Photo = ({bunny, i}) => {
   return (
     <figure className="grid-figure">
-      <Link to={"bunnies/" + i} className="button">
-        <div className="grid-photo-wrap">
+      <div className="grid-photo-wrap">
+        <Link to={"bunnies/" + i} className="button">
           <img src={bunny.attributes['img-url']} alt={bunny.attributes.name} className="grid-photo"/>
-        </div>
-        <figcaption>
-          <p>{bunny.attributes.name}</p>
-        </figcaption>
-      </Link>
+        </Link>
+      </div>
+      <figcaption>
+        <p>{bunny.attributes.name}</p>
+      </figcaption>
     </figure>
   );
 };

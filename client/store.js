@@ -8,8 +8,8 @@ import { loadBunnies } from './actions/bunnyActions';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const defaultState = {
-  bunnies: {},
-  hobbies: {}
+  bunnies: { data: []},
+  hobbies: { data: []}
 };
 
 const store = createStore(rootReducer, defaultState, composeEnhancers(
