@@ -7,14 +7,14 @@ import Photo from './Photo';
 
 class SingleBunny extends React.Component {
   render() {
-    if (this.props.bunnies.data.length == 0) {
+    if (this.props.bunnies.length == 0) {
       return (
         <Loading />
       );
     }
 
     const id = parseInt(this.props.params.id);
-    const bunny = this.props.bunnies.data[id];
+    const bunny = this.props.bunnies[id];
 
     return (
       <div className="single-photo">

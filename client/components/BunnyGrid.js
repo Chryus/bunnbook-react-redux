@@ -19,7 +19,7 @@ class BunnyGrid extends Component {
           <h1>Here are the bunnies!</h1>
         </div>
         <div className="photo-grid">
-          {this.props.bunnies.data.map((bunny, i) => 
+          {this.props.bunnies.map((bunny, i) => 
             <Photo key={i} i={i} bunny={bunny} />
           )}
         </div>
